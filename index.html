@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+</head>
+<body style="text-align: center;">
+    <h1>Create Account</h1>
+    <form id="create-account">
+        <h3>Username</h3>
+        <input type="text" placeholder="username" id="username">
+        <h3>Email</h3>
+        <input type="email" placeholder="email" id="email">
+        <h3>Password</h3>
+        <input type="password" placeholder="password" id="password"><br>
+        <input type="checkbox" onclick="seepassword()"> Show Password
+        <h3>Validation Password</h3>
+        <input type="password" placeholder="password" id="validation-password"><br>
+        <input type="checkbox" onclick="seeValpassword()"> Show Password<br><br>
+        <button>Create Account</button>
+    </form>
+    <script>
+        var form = document.getElementById("create-account");
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault()
+            var name = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var valpass = document.getElementById("validation-password").value;
+
+            if(name == ''){
+                alert("Tolong isi nama anda");
+            }
+            if(email == ''){
+                alert("Tolong isi Email anda");
+            }
+            if(password == ''){
+                alert("Tolong isi password anda");
+            }
+            if(password != valpass){
+                alert("Password dan Validation Password tidak sama")
+            }
+            if((name != '' && email != '')&&(password != '' && password == valpass)){
+                window.location = "create-account.html";
+            }
+        })
+
+        function seepassword(){
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        function seeValpassword(){
+            var x = document.getElementById("validation-password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
